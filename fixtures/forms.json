@@ -1,0 +1,26 @@
+[
+{
+  "name": "MyForm",
+  "lead_email": "email",
+  "user_phone": "phone",
+  "text": "text",
+  "order_date": "date"
+},
+{
+  "name": "Order Form",
+  "email": "email",
+  "phone": "phone",
+  "date": "date"
+},
+{
+  "name": "Form name",
+  "user_email": "email",
+  "user_text": "text",
+  "user_date": "date"
+},
+{
+  "name": "Order Form duplicate",
+  "email": "email",
+  "phone": "phone"
+}
+]
