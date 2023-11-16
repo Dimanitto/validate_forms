@@ -13,7 +13,7 @@ client = TestClient(app)
 def test_success_form_one():
     response = client.post(
         "/get_form",
-        json={'email': "test@ya.ru"},
+        data={'email': "test@ya.ru"},
     )
     data = response.json()
     assert data.get("name") == "Order Form"
@@ -23,7 +23,7 @@ def test_success_form_one():
 def test_success_form_two():
     response = client.post(
         "/get_form",
-        json={
+        data={
             "lead_email": "tester@ya.ru",
             "user_phone": '+7 999 888 77 66'
         },
@@ -41,7 +41,7 @@ def test_fail_form_one():
     }
     response = client.post(
         "/get_form",
-        json={
+        data={
             "f_name11": "15.11.2023",
             "f_name22": 'text'
         },
@@ -59,7 +59,7 @@ def test_fail_form_two():
     }
     response = client.post(
         "/get_form",
-        json={
+        data={
             "f_name_phone": "+7 999 666 44 55",
             "f_name_email": 'test@ya.ru',
             "wrong_phone": "+79996664455"

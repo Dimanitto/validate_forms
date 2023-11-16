@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from starlette import status
 
@@ -19,9 +19,10 @@ async def index():
     "/get_form",
     summary="Поиск среди шаблонов форм",
     description="Если найдется шаблон response = {'name': 'Myform'}, "
-                "если нет то = {'f_name1': FIELD_TYPE, ...}"
+                "если нет то = {'f_name1': FIELD_TYPE, ...}",
+    response_model=ExampleForm
 )
-async def get_form(data: ExampleForm) -> dict:
+async def get_form(request: Request) -> dict:
     """
     Поддерживаются типы:
     - **email**
@@ -29,7 +30,8 @@ async def get_form(data: ExampleForm) -> dict:
     - **дата**
     - **текст**
     """
-    data = data.model_dump()
+    form_data = await request.form()
+    data = {**form_data}
     or_conditions = []
     for field_name in data.keys():
         or_conditions.append(

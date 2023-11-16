@@ -43,7 +43,7 @@ async def find_matching_form(results: list[dict], data: dict) -> dict:
 
 async def check_fields_type(data: dict) -> bool:
     """Проверка что все значения совпадают с типами данных"""
-    field_types = {"email", "phone", "email", "text"}
+    field_types = {"email", "phone", "date", "text"}
     data_values = set(data.values())
     if data_values.issubset(field_types):
         return True

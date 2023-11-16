@@ -11,8 +11,8 @@ class ExampleForm(BaseModel):
         extra="allow",
         json_schema_extra={
             "example": {
-                "phone": "+7 888 777 66 11",
-                "date": "2001-01-25",
+                "field_name_1": "phone",
+                "field_name_2": "date",
             }
         },
     )
